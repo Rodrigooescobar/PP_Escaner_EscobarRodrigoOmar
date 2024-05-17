@@ -33,6 +33,25 @@ namespace Entidades
             return !(m1.Barcode == m2.Barcode);
         }
 
+        public override int GetHashCode()
+        {
+            return 0;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            //if (obj is Libro && obj != null)
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            Mapa otroLibro = (Mapa)obj;
+
+            return (this.Barcode == otroLibro.Barcode || (this.Titulo == otroLibro.Titulo && this.Autor == otroLibro.Autor &&
+                this.Anio == otroLibro.Anio && this.Superficie == otroLibro.Superficie));
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

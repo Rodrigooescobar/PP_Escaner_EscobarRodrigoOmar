@@ -31,9 +31,9 @@ namespace Entidades
         public string Barcode { get => barcode; }
         protected string NumNormalizado { get => numNormalizado; }
         public string Titulo { get => titulo; }
-        private Paso Estado { get => estado; }
+        public Paso Estado { get => estado; }
 
-        enum Paso
+        public enum Paso
         {
             Inicio,
             Distribuido,
