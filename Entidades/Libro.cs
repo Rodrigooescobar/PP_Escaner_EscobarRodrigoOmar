@@ -21,10 +21,10 @@ namespace Entidades
 
         public static bool operator ==(Libro l1, Libro l2)
         {
-            if(l1 is Libro && l2 is Libro)
+            if (l1 is Libro && l2 is Libro)
             {
-            return (l1.Barcode == l2.Barcode || l1.ISBN == l2.ISBN || 
-                (l1.Titulo == l2.Titulo && l1.Autor == l2.Autor));
+                return (l1.Barcode == l2.Barcode || l1.ISBN == l2.ISBN ||
+                    (l1.Titulo == l2.Titulo && l1.Autor == l2.Autor));
             }
             return false;
             //return l1.Equals(l2);
@@ -51,16 +51,19 @@ namespace Entidades
             Libro otroLibro = (Libro)obj;
 
             return (this.Barcode == otroLibro.Barcode || this.ISBN == otroLibro.ISBN || 
-                this.Titulo == otroLibro.Titulo && this.Autor == otroLibro.Autor);
+                (this.Titulo == otroLibro.Titulo && this.Autor == otroLibro.Autor));
         }
 
         public override string ToString()
         {
+            string stringBase = base.ToString();
+
             StringBuilder sb = new StringBuilder();
-            sb.Append(base.ToString());
-            sb.AppendLine($"ISBN: {this.ISBN}");
-            sb.AppendLine($"Cód: de barras: {this.Barcode}");
-            sb.AppendLine($"Número de páginas: {this.numPaginas}.");
+            sb.Append(stringBase);
+            int codBarras = stringBase.IndexOf("Cód.");
+
+            sb.Insert(codBarras, $"ISBN: {this.ISBN} \n");
+            sb.Append($"Número de páginasss: {this.numPaginas}.");
 
             return sb.ToString();
         }

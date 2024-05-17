@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,25 +53,28 @@ namespace Entidades
             {
                 case Paso.Inicio:
                     this.estado = Paso.Distribuido;
-                    break;
+                    return true;
                 case Paso.Distribuido:
                     this.estado = Paso.EnEscaner;
-                    break;
+                    return true;
                 case Paso.EnRevicion:
                     this.estado = Paso.Terminado;
-                    break;
+                    return true;
                 case Paso.Terminado:
                     return false;
+                default:
+                    return false;
             }
-            return true;
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine("");
             sb.AppendLine($"Titulo: {this.titulo}");
             sb.AppendLine($"Autor: {this.autor}");
             sb.AppendLine($"Año: {this.anio}");
+            sb.AppendLine($"Cód. de barras: {this.barcode}");
 
             return sb.ToString();
         }
