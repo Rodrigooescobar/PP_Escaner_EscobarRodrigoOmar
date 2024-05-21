@@ -19,7 +19,7 @@ namespace Entidades
     // - resumen: se muestran los datos de cada uno de los ítems contenidos en una lista
     // según el escáner y el estado.
 
-    public static class Informe
+    public static class Informes
     {
         /// <summary>
         /// Devuelve e: un escaner con el estado de los docuemntos en "Distribuidos",

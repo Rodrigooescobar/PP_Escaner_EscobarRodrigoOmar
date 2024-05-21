@@ -151,7 +151,7 @@ namespace Test
 
             // Mostrar los resultados
             // Llamar al metodo MostrarDistribuidos
-            Informe.MostrarDistribuidos(escanerLibro, out extension, out cantidad, out resumen);
+            Informes.MostrarDistribuidos(escanerLibro, out extension, out cantidad, out resumen);
             Console.WriteLine("Metodo MostrarDistribuidos, solo debe mostrar 2 l1 y l3:");
             Console.WriteLine($"Extensión total: {extension}");
             Console.WriteLine($"Cantidad total de ítems: {cantidad}");
@@ -163,7 +163,7 @@ namespace Test
             Console.WriteLine();
 
             // Llamar al metodo EnEscaner
-            Informe.MostrarEnEscaner(escanerLibro, out extension, out cantidad, out resumen);
+            Informes.MostrarEnEscaner(escanerLibro, out extension, out cantidad, out resumen);
             Console.WriteLine("Metodo EnEscaner, solo debe mostrar 2: l4 y l5");
             Console.WriteLine($"Extensión total: {extension}");
             Console.WriteLine($"Cantidad total de ítems: {cantidad}");
@@ -175,7 +175,7 @@ namespace Test
             Console.WriteLine();
 
             // Llamar al metodo MostrarEnRevision
-            Informe.MostrarEnRevision(escanerLibro, out extension, out cantidad, out resumen);
+            Informes.MostrarEnRevision(escanerLibro, out extension, out cantidad, out resumen);
             Console.WriteLine("Metodo MostrarEnRevision, solo debe mostrar 2: l6 y l7");
             Console.WriteLine($"Extensión total: {extension}");
             Console.WriteLine($"Cantidad total de ítems: {cantidad}");
@@ -187,7 +187,7 @@ namespace Test
             Console.WriteLine();
 
             // Llamar al metodo MostrarTerminado
-            Informe.MostrarTerminados(escanerLibro, out extension, out cantidad, out resumen);
+            Informes.MostrarTerminados(escanerLibro, out extension, out cantidad, out resumen);
             Console.WriteLine("Metodo MostrarTerminados, solo debe mostrar 2: l8 y l9");
             Console.WriteLine($"Extensión total: {extension}");
             Console.WriteLine($"Cantidad total de ítems: {cantidad}");
