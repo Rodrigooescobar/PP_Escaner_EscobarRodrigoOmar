@@ -24,7 +24,7 @@ namespace Entidades
         /// <summary>
         /// Devuelve e: un escaner con el estado de los docuemntos en "Distribuidos",
         /// extensión: el total de páginas en el caso de los libros y el total de cm2 en el caso de los
-        /// mapas, cantidad: el número total de ítems únicos procesados en estado "Distrbuidos",  y resumen:
+        /// mapas, cantidad: el número total de ítems únicos procesados en estado "Distribuidos",  y resumen:
         /// muestran cada uno de los ítems contenidos en una lista, en el estado dicho anteriormente.
         /// </summary>
         /// <param name="e"></param>
@@ -35,19 +35,63 @@ namespace Entidades
         {
             MostrarDocumentos(e, Paso.Distribuido, out extension, out cantidad, out resumen);
         }
+
+        /// <summary>
+        /// Devuelve e: un escaner con el estado de los documentos en "EnRevision",
+        /// extensión: el total de páginas en el caso de los libros y el total de cm2 en el caso de los
+        /// mapas, cantidad: el número total de ítems únicos procesados en estado "EnRevision",  y resumen:
+        /// muestran cada uno de los ítems contenidos en una lista, en el estado dicho anteriormente.
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="extension"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="resumen"></param>
         public static void MostrarEnRevision(Escaner e, out int extension, out int cantidad, out string resumen)
         {
             MostrarDocumentos(e, Paso.EnRevicion, out extension, out cantidad, out resumen);
         }
+
+        /// <summary>
+        /// Devuelve e: un escaner con el estado de los documentos en "EnEscaner",
+        /// extensión: el total de páginas en el caso de los libros y el total de cm2 en el caso de los
+        /// mapas, cantidad: el número total de ítems únicos procesados en estado "EnEscaner",  y resumen:
+        /// muestran cada uno de los ítems contenidos en una lista, en el estado dicho anteriormente.
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="extension"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="resumen"></param>
         public static void MostrarEnEscaner(Escaner e, out int extension, out int cantidad, out string resumen)
         {
             MostrarDocumentos(e, Paso.EnEscaner, out extension, out cantidad, out resumen);
         }
+
+        /// <summary>
+        /// Devuelve e: un escaner con el estado de los documentos en "Terminados",
+        /// extensión: el total de páginas en el caso de los libros y el total de cm2 en el caso de los
+        /// mapas, cantidad: el número total de ítems únicos procesados en estado "Terminados",  y resumen:
+        /// muestran cada uno de los ítems contenidos en una lista, en el estado dicho anteriormente.
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="extension"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="resumen"></param>
         public static void MostrarTerminados(Escaner e, out int extension, out int cantidad, out string resumen)
         {
             MostrarDocumentos(e, Paso.Terminado, out extension, out cantidad, out resumen);
         }
 
+        /// <summary>
+        /// Devuelve e: un escaner con el estado de los documentos en segun el "estado" que se le pasa,
+        /// extensión: el total de páginas en el caso de los libros y el total de cm2 en el caso de los
+        /// mapas, cantidad: el número total de ítems únicos procesados en estado "Terminados",  y resumen:
+        /// muestran cada uno de los ítems contenidos en una lista, en el estado dicho anteriormente.
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="estado"></param>
+        /// <param name="extension"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="resumen"></param>
         private static void MostrarDocumentos(Escaner e, Paso estado, out int extension, out int cantidad, out string resumen)
         {
             extension = 0;

@@ -22,7 +22,14 @@ namespace Entidades
             this.marca = marca;
             this.tipo = tipo;
             listaDocumentos = new List<Documento>();
-            this.locacion = IniciarLocacion();
+            if (this.tipo == TipoDoc.libro)
+            {
+                this.locacion = Departamento.procesosTecnicos;
+            }
+            else
+            {
+                this.locacion = Departamento.mapoteca;
+            }
         }
 
         public List<Documento> ListaDocumentos { get => listaDocumentos; }
@@ -135,24 +142,6 @@ namespace Entidades
         {
             libro,
             mapa
-        }
-
-        /// <summary>
-        /// Metodo para inicializar la locacion del escaner, segun el tipo: 
-        /// Si el escáner es de mapas se inicializa en la mapoteca y si es de
-        /// libros en la oficina de procesos técnicos.
-        /// </summary>
-        /// <returns></returns>
-        private Departamento IniciarLocacion()
-        {
-            if (this.tipo == TipoDoc.libro)
-            {
-                return Departamento.procesosTecnicos;
-            }
-            else
-            {
-                return Departamento.mapoteca;
-            }
         }
 
         // No se configura el metodo Equals ya que no pide el enunciado

@@ -46,6 +46,11 @@ namespace Entidades
         // El método AvanzarEstado() debe pasar al siguiente estado dentro del orden que se
         // estableció en el requerimiento.Debe devolver false si el documento ya está
         // terminado.
+        /// <summary>
+        /// Avanza un estado del documento, el el mismo esta terminado devuelve
+        /// false.
+        /// </summary>
+        /// <returns></returns>
 
         public bool AvanzarEstado()
         {

@@ -19,6 +19,13 @@ namespace Entidades
         public int NumPaginas { get => numPaginas; }
         public string ISBN { get => NumNormalizado; }
 
+        /// <summary>
+        /// Compara 2 libros si son iguales segun tengan :
+        /// el mismo barcode o el mismo ISBN o el mismo título y el mismo autor
+        /// </summary>
+        /// <param name="l1"></param>
+        /// <param name="l2"></param>
+        /// <returns></returns>
         public static bool operator ==(Libro l1, Libro l2)
         {
             if (l1 is Libro && l2 is Libro)
@@ -50,7 +57,7 @@ namespace Entidades
 
             Libro otroLibro = (Libro)obj;
 
-            return (this.Barcode == otroLibro.Barcode || this.ISBN == otroLibro.ISBN || 
+            return (this.Barcode == otroLibro.Barcode || this.ISBN == otroLibro.ISBN ||
                 (this.Titulo == otroLibro.Titulo && this.Autor == otroLibro.Autor));
         }
 
@@ -63,7 +70,7 @@ namespace Entidades
             int codBarras = stringBase.IndexOf("Cód.");
 
             sb.Insert(codBarras, $"ISBN: {this.ISBN} \n");
-            sb.Append($"Número de páginasss: {this.numPaginas}.");
+            sb.Append($"Número de páginas: {this.numPaginas}.");
 
             return sb.ToString();
         }

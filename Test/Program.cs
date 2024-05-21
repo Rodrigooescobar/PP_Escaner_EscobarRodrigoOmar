@@ -39,8 +39,11 @@ namespace Test
                               $"{escanerLibro + l3}");
 
             Console.WriteLine();
-            Console.WriteLine($"Pruebo == de escaner, Agrego el mismo libro a la lista T: " +
+            Console.WriteLine($"Pruebo == de escaner, comparo el mismo libro a la lista T: " +
                               $"{escanerLibro == l1}");
+
+            Console.WriteLine($"Pruebo == de escaner, comparo un libro distinto a la lista F: " +
+                              $"{escanerLibro == l4}");
             Console.WriteLine($"Pruebo == de escaner, con un mapa F: {escanerLibro == mapa}");
 
             Console.WriteLine($"Estado del libro que se agrego: {l3.Estado}");
@@ -63,12 +66,13 @@ namespace Test
             Console.WriteLine();
             Console.WriteLine($"Avanzando un libro terminado F: {l10.AvanzarEstado()}");
 
+            Console.WriteLine();
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("//////////// Probando escaner de mapas ///////////");
-
+            Console.WriteLine();
             Escaner escanerMapa = new Escaner("Marca acme", Escaner.TipoDoc.mapa);
 
             Mapa m1 = new Mapa("Titulomap1", "AutorMap", 2024, "", "1234", 10, 20);
@@ -95,11 +99,21 @@ namespace Test
             Console.WriteLine($"Se puede agregar un libro al escaner ? F: " +
                               $"{escanerMapa + l6}");
 
+            Console.WriteLine();
+            Console.WriteLine($"Pruebo == de escaner, comparo con un mapa de la lista T: " +
+                              $"{escanerMapa == m1}");
+
+            Console.WriteLine($"Pruebo == de escaner, comparo un mapa distinto de la lista F: " +
+                              $"{escanerMapa == m5}");
+
+            Console.WriteLine($"Pruebo == de escaner, con un libro F: {escanerMapa == l5}");
+
+            Console.WriteLine();
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("///// Probando clase informe en Esc. Libro ///////");
-
+            Console.WriteLine();
             // Variables para los resultados
             int extension;
             int cantidad;
@@ -143,8 +157,10 @@ namespace Test
             Console.WriteLine($"Cantidad total de ítems: {cantidad}");
             Console.WriteLine(resumen);
 
+            Console.WriteLine();
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////////////");
+            Console.WriteLine();
 
             // Llamar al metodo EnEscaner
             Informe.MostrarEnEscaner(escanerLibro, out extension, out cantidad, out resumen);
@@ -153,8 +169,10 @@ namespace Test
             Console.WriteLine($"Cantidad total de ítems: {cantidad}");
             Console.WriteLine(resumen);
 
+            Console.WriteLine();
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////////////");
+            Console.WriteLine();
 
             // Llamar al metodo MostrarEnRevision
             Informe.MostrarEnRevision(escanerLibro, out extension, out cantidad, out resumen);
@@ -163,8 +181,10 @@ namespace Test
             Console.WriteLine($"Cantidad total de ítems: {cantidad}");
             Console.WriteLine(resumen);
 
+            Console.WriteLine();
             Console.WriteLine("//////////////////////////////////////////////////");
             Console.WriteLine("//////////////////////////////////////////////////");
+            Console.WriteLine();
 
             // Llamar al metodo MostrarTerminado
             Informe.MostrarTerminados(escanerLibro, out extension, out cantidad, out resumen);

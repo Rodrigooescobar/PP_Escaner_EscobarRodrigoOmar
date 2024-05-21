@@ -22,6 +22,13 @@ namespace Entidades
         public int Ancho { get => ancho; }
         public int Superficie { get => ancho * alto; }
 
+        /// <summary>
+        /// Compara 2 mapas si son iguales segun tengan : el mismo barcode o
+        /// el mismo título y el mismo autor y el mismo año y la misma superficie.
+        /// </summary>
+        /// <param name="m1"></param>
+        /// <param name="m2"></param>
+        /// <returns></returns>
         public static bool operator ==(Mapa m1, Mapa m2)
         {
             return (m1.Barcode == m2.Barcode || (m1.Titulo == m2.Titulo && m1.Autor == m2.Autor &&
