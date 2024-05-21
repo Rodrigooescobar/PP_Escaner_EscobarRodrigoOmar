@@ -57,6 +57,9 @@ namespace Entidades
                 case Paso.Distribuido:
                     this.estado = Paso.EnEscaner;
                     return true;
+                case Paso.EnEscaner:
+                    this.estado = Paso.EnRevicion;
+                    return true;
                 case Paso.EnRevicion:
                     this.estado = Paso.Terminado;
                     return true;
