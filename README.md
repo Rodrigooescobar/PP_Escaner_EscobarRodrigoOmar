@@ -118,7 +118,7 @@ public static bool operator ==(Libro l1, Libro l2)
 ![imagen de un punto de requisito](/imagenes/info-mapa.jpg "informacion de mapa")
 
 ### Clase Escaner
-![imagen de un punto de requisito](/imagenes/documento.jpg "Clase Documento")
+![imagen de un punto de requisito](/imagenes/escaner.jpg "Clase Documento")
 
 * El constructor debe inicializar la lista de documentos.
 * El constructor inicializa la locación según el tipo de documento a escanear (si es
