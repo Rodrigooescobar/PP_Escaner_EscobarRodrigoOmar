@@ -31,8 +31,12 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator ==(Mapa m1, Mapa m2)
         {
-            return (m1.Barcode == m2.Barcode || (m1.Titulo == m2.Titulo && m1.Autor == m2.Autor &&
+            if (m1 is Mapa && m2 is Mapa)
+            {
+                return (m1.Barcode == m2.Barcode || (m1.Titulo == m2.Titulo && m1.Autor == m2.Autor &&
                 m1.Anio == m2.Anio && m1.Superficie == m2.Superficie));
+            }
+            return false;
         }
 
         public static bool operator !=(Mapa m1, Mapa m2)
