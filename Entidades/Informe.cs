@@ -126,7 +126,7 @@ namespace Entidades
 
             if (listaDistribuidos.Count == 0)
             {
-                resumen = $"Escaner {e.Marca} sin Documentos en estado: {estado}";
+                resumen = "";
             }
 
         }

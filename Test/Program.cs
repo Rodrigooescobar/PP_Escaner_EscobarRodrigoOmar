@@ -1,7 +1,4 @@
 ﻿using Entidades;
-using System.Net.Http.Headers;
-using System.Reflection.Metadata;
-using static Entidades.Documento;
 
 namespace Test
 {
@@ -9,189 +6,154 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            Escaner escanerLibro = new Escaner("Marca patito", Escaner.TipoDoc.libro);
+            // LIBROS
+            // Caminos felices
+            Libro l1 = new Libro("Yerma", "García Lorca, Federico", 1995, "11111", "22222", 100);
+            Libro l2 = new Libro("Bodas de sangre", "García Lorca, Federico", 1997, "11112", "22223", 200);
+            // Barcode repetido
+            Libro l3 = new Libro("Codebar repetido", "García Lorca, Federico", 2003, "11113", "22222", 3);
+            // ISBN repetido
+            Libro l4 = new Libro("ISBN repetido", "García Lorca, Federico", 2003, "11112", "22224", 2);
+            // Título-autor repetido
+            Libro l5 = new Libro("Yerma", "García Lorca, Federico", 2003, "55555", "66666", 1);
 
-            Libro l1 = new Libro("TituloLibro1", "Yo1", 2024, "123", "0123", 20);
-            Libro l2 = new Libro("TituloLibro1", "Yo1", 2024, "1234", "01233", 20);
-            Libro l3 = new Libro("TituloLibro3", "Yoo3", 20245, "12345", "012334", 220);
-            Libro l4 = new Libro("TituloLibro4", "Yooo4", 203245, "123345", "0132334", 2220);
-            Libro l5 = new Libro("TituloLibro5", "Yooo5", 203245, "123345", "0132334", 2220);
-            Libro l6 = new Libro("TituloLibro6", "Yooo6", 2032456, "1233456", "013233456", 26);
-            Libro l7 = new Libro("TituloLibro7", "Yooo7", 20324567, "123345567", "0132334567", 27);
-            Libro l8 = new Libro("TituloLibro8", "Yooo8", 203245678, "123345678", "01323345678", 28);
-            Libro l9 = new Libro("TituloLibro9", "Yooo9", 2032456789, "1233456789", "013233456789", 29);
-            Libro l10 = new Libro("TituloLibro10", "Yooo10", 20324510, "12334510", "013233410", 30);
-            Libro l11 = new Libro("TituloLibro6", "Yooo11", 20324511, "12334511", "013233411", 31);
-            Mapa mapa = new Mapa("TituloMapa", "AutorMapA", 2030, "", "12345", 2, 5);
+            //MAPAS 
+            // Caminos felices
+            Mapa m1 = new Mapa("Buenos Aires", "Instituto Geográfico de Buenos Aires", 2005, "", "99999", 30, 15); //450
+            Mapa m2 = new Mapa("Mendoza", "Instituto Geográfico de Mendoza", 2008, "", "99990", 100, 30); //300
+            Mapa m3 = new Mapa("Santa Fe", "Instituto Geográfico de Santa Fe", 2010, "", "99991", 80, 30); //2400
+            Mapa m4 = new Mapa("Corrientes", "Instituto Geográfico de Corrientes", 2013, "", "99992", 50, 25); //1250
+            // Barcode repetido
+            Mapa m5 = new Mapa("Barcode repetido", "Instituto Geográfico", 2015, "", "99999", 40, 15);//600
+            // Título - autor - superficie
+            Mapa m6 = new Mapa("Buenos Aires", "Instituto Geográfico de Buenos Aires", 2005, "", "99993", 30, 15);//200
 
-            if (escanerLibro + l1)
-                Console.WriteLine($"Se agrega al escaner el libro: {l1}");
+            //ESCANERS
+            Escaner l = new Escaner("HP", Escaner.TipoDoc.libro);
+            Escaner m = new Escaner("HP", Escaner.TipoDoc.mapa);
 
-            Console.WriteLine();
-            Console.WriteLine($"Comparo el mismo Libro: libro es igual ? T: {l1 == l2}");
-            Console.WriteLine($"Comparo distinto Libro: libro es igual ? F: {l1 == l3}");
+            bool pudo = l + l1;
+            pudo = l + l2;
+            pudo = l + l3;
+            pudo = l + l4;
+            pudo = l + l5;
+            pudo = m + m1;
+            pudo = m + m2;
+            pudo = m + m3;
+            pudo = m + m4;
+            pudo = m + m5;
+            pudo = m + m6;
+            pudo = m + l1;
+            pudo = l + m1;
 
-            Console.WriteLine();
-            Console.WriteLine($"Se puede agregar un libro Igual al escaner ? F: " +
-                              $"{escanerLibro + l2}");
-
-            Console.WriteLine($"Se puede agregar un libro  distinto al escaner ? T: " +
-                              $"{escanerLibro + l3}");
-
-            Console.WriteLine();
-            Console.WriteLine($"Pruebo == de escaner, comparo el mismo libro a la lista T: " +
-                              $"{escanerLibro == l1}");
-
-            Console.WriteLine($"Pruebo == de escaner, comparo un libro distinto a la lista F: " +
-                              $"{escanerLibro == l4}");
-            Console.WriteLine($"Pruebo == de escaner, con un mapa F: {escanerLibro == mapa}");
-
-            Console.WriteLine($"Estado del libro que se agrego: {l3.Estado}");
-
-            Console.WriteLine();
-            l4.AvanzarEstado();
-            Console.WriteLine($"Avanzo el estado de otro libro a (Distribuido): {l4.Estado}");
-
-            Console.WriteLine();
-            Console.WriteLine($"Se puede agregar el libro Distribuido al escaner ? F: " +
-                              $"{escanerLibro + l4}");
-
-            Console.WriteLine();
-            Console.WriteLine($"Sepuede agregar un mapa al escaner de libros ? F:{escanerLibro + mapa}");
-
-            l10.AvanzarEstado();
-            l10.AvanzarEstado();
-            l10.AvanzarEstado();
-            l10.AvanzarEstado();
-            Console.WriteLine();
-            Console.WriteLine($"Avanzando un libro terminado F: {l10.AvanzarEstado()}");
-
-            Console.WriteLine();
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("//////////// Probando escaner de mapas ///////////");
-            Console.WriteLine();
-            Escaner escanerMapa = new Escaner("Marca acme", Escaner.TipoDoc.mapa);
-
-            Mapa m1 = new Mapa("Titulomap1", "AutorMap", 2024, "", "1234", 10, 20);
-            Mapa m2 = new Mapa("Titulomap1", "AutorMap", 2024, "", "1234", 10, 20);
-            Mapa m3 = new Mapa("Titulomap3", "AutorMap3", 2023, "", "0123", 20, 30);
-            Mapa m4 = new Mapa("Titulomap4", "AutorMap4", 2022, "", "01234", 30, 40);
-            Mapa m5 = new Mapa("Titulomap5", "AutorMap5", 2021, "", "012345", 40, 50);
-            Mapa m6 = new Mapa("Titulomap6", "AutorMap6", 2020, "", "0123456", 50, 60);
-
-            escanerMapa.ListaDocumentos.Add(m1);
-            Console.WriteLine($"Se agrega al escaner el mapa: {m1}");
-
-            Console.WriteLine($"Comparo el mismo mapa: mapa igual ? T: {m1 == m2}");
-            Console.WriteLine($"Comparo distinto mapa: mapa igual ? F: {m1 == m3}");
-            Console.WriteLine($"Se puede agregar un mapa igual al escaner ? F: " +
-                              $"{escanerMapa + m2}");
-            Console.WriteLine($"Se puede agregar un mapa distinto al escaner ? T: " +
-                              $"{escanerMapa + m3}");
-
+            l1.AvanzarEstado();
+            l1.AvanzarEstado();
+            l2.AvanzarEstado();
+            l2.AvanzarEstado();
+            m2.AvanzarEstado();
+            m3.AvanzarEstado();
+            m3.AvanzarEstado();
+            m3.AvanzarEstado();
             m4.AvanzarEstado();
-            Console.WriteLine($"Se puede agregar un mapa Avanzado al escaner ? F: " +
-                              $"{escanerMapa + m4}");
+            m4.AvanzarEstado();
+            m4.AvanzarEstado();
+            m4.AvanzarEstado();
+            m4.AvanzarEstado();
 
-            Console.WriteLine($"Se puede agregar un libro al escaner ? F: " +
-                              $"{escanerMapa + l6}");
+            Informes.MostrarDistribuidos(l, out int extensionLibroDistr, out int cantidadLibroDistr, out string resumenLibroDistr);
+            Informes.MostrarEnEscaner(l, out int extensionLibroEnEsc, out int cantidadLibroEnEsc, out string resumenLibroEnEsc);
+            Informes.MostrarEnRevision(l, out int extensionLibroEnRev, out int cantidadLibroEnRev, out string resumenLibroEnRev);
+            Informes.MostrarTerminados(l, out int extensionLibroTerminado, out int cantidadLibroTerminado, out string resumenLibroTerminado);
 
-            Console.WriteLine();
-            Console.WriteLine($"Pruebo == de escaner, comparo con un mapa de la lista T: " +
-                              $"{escanerMapa == m1}");
+            Informes.MostrarDistribuidos(m, out int extensionMapaDistr, out int cantidadMapaDistr, out string resumenMapaDistr);
+            Informes.MostrarEnEscaner(m, out int extensionMapaEnEsc, out int cantidadMapaEnEsc, out string resumenMapaEnEsc); ;
+            Informes.MostrarEnRevision(m, out int extensionMapaEnRev, out int cantidadMapaEnRev, out string resumenMapaEnRev);
+            Informes.MostrarTerminados(m, out int extensionMapaTerminado, out int cantidadMapaTerminado, out string resumenMapaTerminado);
 
-            Console.WriteLine($"Pruebo == de escaner, comparo un mapa distinto de la lista F: " +
-                              $"{escanerMapa == m5}");
+            int puntos = 0;
+            if (extensionLibroDistr == 0) { puntos += 3; }
+            if (cantidadLibroDistr == 0) { puntos += 1; }
+            if (resumenLibroDistr == "") { puntos += 1; } //mal
 
-            Console.WriteLine($"Pruebo == de escaner, con un libro F: {escanerMapa == l5}");
+            if (extensionLibroEnEsc == 0) { puntos += 3; }
+            if (cantidadLibroEnEsc == 0) { puntos += 1; }
+            if (resumenLibroEnEsc == "") { puntos += 1; } // mal
 
-            Console.WriteLine();
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("///// Probando clase informe en Esc. Libro ///////");
-            Console.WriteLine();
-            // Variables para los resultados
-            int extension;
-            int cantidad;
-            string resumen;
+            if (extensionLibroEnRev == l1.NumPaginas + l2.NumPaginas) { puntos += 3; }
+            if (cantidadLibroEnRev == 2) { puntos += 1; }
+            if (resumenLibroEnRev == l1.ToString() + l2.ToString()) { puntos += 1; }
 
-            // agrego un libro en estado inicio l5  y otro EnRevision l6
-            Console.WriteLine("En total son 8 libros, 2 de cada Estado");
-            l4.AvanzarEstado();
-            escanerLibro.ListaDocumentos.Add(l4);
-            l5.AvanzarEstado();
-            l5.AvanzarEstado();
-            escanerLibro.ListaDocumentos.Add(l5);
-            // l6 en revicion
-            l6.AvanzarEstado();
-            l6.AvanzarEstado();
-            l6.AvanzarEstado();
-            escanerLibro.ListaDocumentos.Add(l6);
-            // l7 en revicion
-            l7.AvanzarEstado();
-            l7.AvanzarEstado();
-            l7.AvanzarEstado();
-            escanerLibro.ListaDocumentos.Add(l7);
-            // l8 terminado
-            l8.AvanzarEstado();
-            l8.AvanzarEstado();
-            l8.AvanzarEstado();
-            //l8.AvanzarEstado();
-            escanerLibro.ListaDocumentos.Add(l8);
-            // l9 terminado
-            l9.AvanzarEstado();
-            l9.AvanzarEstado();
-            l9.AvanzarEstado();
-            //l9.AvanzarEstado();
-            escanerLibro.ListaDocumentos.Add(l9);
+            if (extensionLibroTerminado == 0) { puntos += 3; }
+            if (cantidadLibroTerminado == 0) { puntos += 1; }
+            if (resumenLibroTerminado == "") { puntos += 1; } // mal
 
-            // Mostrar los resultados
-            // Llamar al metodo MostrarDistribuidos
-            Informes.MostrarDistribuidos(escanerLibro, out extension, out cantidad, out resumen);
-            Console.WriteLine("Metodo MostrarDistribuidos, solo debe mostrar 2 l1 y l3:");
-            Console.WriteLine($"Extensión total: {extension}");
-            Console.WriteLine($"Cantidad total de ítems: {cantidad}");
-            Console.WriteLine(resumen);
+            if (extensionMapaDistr == m1.Superficie) { puntos += 3; }
+            if (cantidadMapaDistr == 1) { puntos += 1; }
+            if (resumenMapaDistr == m1.ToString()) { puntos += 1; }
 
-            Console.WriteLine();
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine();
+            if (extensionMapaEnEsc == m2.Superficie) { puntos += 3; }
+            if (cantidadMapaEnEsc == 1) { puntos += 1; }
+            if (resumenMapaEnEsc == m2.ToString()) { puntos += 1; }
 
-            // Llamar al metodo EnEscaner
-            Informes.MostrarEnEscaner(escanerLibro, out extension, out cantidad, out resumen);
-            Console.WriteLine("Metodo EnEscaner, solo debe mostrar 2: l4 y l5");
-            Console.WriteLine($"Extensión total: {extension}");
-            Console.WriteLine($"Cantidad total de ítems: {cantidad}");
-            Console.WriteLine(resumen);
+            if (extensionMapaEnRev == 0) { puntos += 3; }
+            if (cantidadMapaEnRev == 0) { puntos += 1; }
+            if (resumenMapaEnRev == "") { puntos += 1; }// mal
 
-            Console.WriteLine();
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine();
+            if (extensionMapaTerminado == m3.Superficie + m4.Superficie) { puntos += 3; }
+            if (cantidadMapaTerminado == 2) { puntos += 1; }
+            if (resumenMapaTerminado == m3.ToString() + m4.ToString()) { puntos += 1; }
 
-            // Llamar al metodo MostrarEnRevision
-            Informes.MostrarEnRevision(escanerLibro, out extension, out cantidad, out resumen);
-            Console.WriteLine("Metodo MostrarEnRevision, solo debe mostrar 2: l6 y l7");
-            Console.WriteLine($"Extensión total: {extension}");
-            Console.WriteLine($"Cantidad total de ítems: {cantidad}");
-            Console.WriteLine(resumen);
+            Console.WriteLine($"Puntos: {puntos} / 40");
 
-            Console.WriteLine();
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine("//////////////////////////////////////////////////");
-            Console.WriteLine();
+            Console.WriteLine("LIBROS DISTRIBUIDOS");
+            Console.WriteLine($"Cantidad de libros ya distribuidos: {cantidadLibroDistr}.");
+            Console.WriteLine($"Cantidad de páginas ya distribuidas: {extensionLibroDistr}.");
+            Console.WriteLine(resumenLibroDistr);
+            Console.WriteLine("---------------------");
 
-            // Llamar al metodo MostrarTerminado
-            Informes.MostrarTerminados(escanerLibro, out extension, out cantidad, out resumen);
-            Console.WriteLine("Metodo MostrarTerminados, solo debe mostrar 2: l8 y l9");
-            Console.WriteLine($"Extensión total: {extension}");
-            Console.WriteLine($"Cantidad total de ítems: {cantidad}");
-            Console.WriteLine(resumen);
+            Console.WriteLine("LIBROS EN ESCANER");
+            Console.WriteLine($"Cantidad de libros en el escáner: {cantidadLibroEnEsc}.");
+            Console.WriteLine($"Cantidad de páginas en el escáner: {extensionLibroEnEsc}.");
+            Console.WriteLine(resumenLibroEnEsc);
+            Console.WriteLine("---------------------");
+
+            Console.WriteLine("LIBROS EN REVISIÓN");
+            Console.WriteLine($"Cantidad de libros en el escáner: {cantidadLibroEnRev}.");
+            Console.WriteLine($"Cantidad de páginas en el escáner: {extensionLibroEnRev}.");
+            Console.WriteLine(resumenLibroEnRev);
+            Console.WriteLine("---------------------");
+
+            Console.WriteLine("LIBROS TERMINADOS");
+            Console.WriteLine($"Cantidad de mapas en el escáner: {cantidadLibroTerminado}.");
+            Console.WriteLine($"Cantidad de cm2 en el escáner: {extensionLibroTerminado}.");
+            Console.WriteLine(resumenLibroTerminado);
+            Console.WriteLine("---------------------");
+
+            Console.WriteLine("MAPAS DISTRIBUIDOS");
+            Console.WriteLine($"Cantidad de mapas ya distribuidos: {cantidadMapaDistr}.");
+            Console.WriteLine($"Cantidad de cm2 ya distribuidos: {extensionMapaDistr}.");
+            Console.WriteLine(resumenMapaDistr);
+            Console.WriteLine("---------------------");
+
+            Console.WriteLine("MAPAS EN ESCANER");
+            Console.WriteLine($"Cantidad de mapas en el escáner: {cantidadMapaEnEsc}.");
+            Console.WriteLine($"Cantidad de cm2 en el escáner: {extensionMapaEnEsc}.");
+            Console.WriteLine(resumenMapaEnEsc);
+            Console.WriteLine("---------------------");
+
+            Console.WriteLine("MAPAS EN REVISIÓN");
+            Console.WriteLine($"Cantidad de mapas en el escáner: {cantidadMapaEnRev}.");
+            Console.WriteLine($"Cantidad de cm2 en el escáner: {extensionMapaEnRev}.");
+            Console.WriteLine(resumenMapaEnRev);
+            Console.WriteLine("---------------------");
+
+            Console.WriteLine("MAPAS TERMINADOS");
+            Console.WriteLine($"Cantidad de mapas en el escáner: {cantidadMapaTerminado}.");
+            Console.WriteLine($"Cantidad de cm2 en el escáner: {extensionMapaTerminado}.");
+            Console.WriteLine(resumenMapaTerminado);
+            Console.WriteLine("---------------------");
+
+            Console.ReadKey();
         }
     }
 }
