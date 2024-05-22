@@ -1,4 +1,5 @@
-# PP_Escaner_EscobarRodrigoOmar# Primer Parcial Laboratorio II
+# Primer Parcial Laboratorio II
+---
 ![imagen logo de la carrera](/imagenes/UTN.jpg "UTN Tecnicatura universitaria en programacionar")
 <!-- UL-->
 ## Alumno:
@@ -7,15 +8,15 @@
 
 ## PP Escaner
 ---
-Requerimientos: 
-
-En una biblioteca se van a escanear dos tipos de documento: mapas y libros. 
-
+**Requerimientos:**
+<p style="text-align: justify;">
+En una biblioteca se van a escanear dos tipos de documento: mapas y libros.  
 Necesitamos
 un programa que nos permita saber en qué paso del proceso tenemos cada uno de los
 documentos que se van a escanear y también sacar indicadores de tipo cuantitativo.
 Los pasos del proceso, es decir, los estados en los que podemos encontrar los documentos
 (de cualquiera de los dos tipos) son los siguientes:
+<p>
 
 * Inicio: el valor por defecto de los documentos.
 * Distribuido: el documento ya está en el escáner que le corresponde.
@@ -33,7 +34,7 @@ En el caso de libros, se considerará que son el mismo libro cuando:
 En el caso de los mapas se considerará que son el mismo mapa cuando:
 * Tenga el mismo barcode o
 * tenga el mismo título y el mismo autor y el mismo año y la misma superficie.
----
+
 ## Esquema
 ---
 ### Clase Documento (padre)
