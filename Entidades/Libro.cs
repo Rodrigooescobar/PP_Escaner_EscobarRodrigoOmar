@@ -42,25 +42,6 @@ namespace Entidades
             return !(l1 == l2);
         }
 
-        public override int GetHashCode()
-        {
-            return 0;
-        }
-
-        public override bool Equals(object? obj)
-        {
-            //if (obj is Libro && obj != null)
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            Libro otroLibro = (Libro)obj;
-
-            return (this.Barcode == otroLibro.Barcode || this.ISBN == otroLibro.ISBN ||
-                (this.Titulo == otroLibro.Titulo && this.Autor == otroLibro.Autor));
-        }
-
         public override string ToString()
         {
             string stringBase = base.ToString();

@@ -110,12 +110,12 @@ namespace Entidades
                 //{
                 //    return true;
                 //}
-                if(d is Libro && doc is Libro && ((Libro)d).NumPaginas == ((Libro)doc).NumPaginas)
+                if(d is Libro && doc is Libro && ((Libro)d) == ((Libro)doc))
                 {
                     return true;
                 }
                 // Si el documento es un mapa y ya existe uno con la misma superficie, retorna true
-                else if (d is Mapa && doc is Mapa && ((Mapa)d).Superficie == ((Mapa)doc).Superficie)
+                else if (d is Mapa && doc is Mapa && ((Mapa)d) == ((Mapa)doc))
                 {
                     return true;
                 }
@@ -142,18 +142,6 @@ namespace Entidades
         {
             libro,
             mapa
-        }
-
-        // No se configura el metodo Equals ya que no pide el enunciado
-        public override bool Equals(object? obj)
-        {
-            return base.Equals(obj);
-        }
-
-        // No se configura el metodo GetHashCode, ya que no pide el enunciado
-        public override int GetHashCode()
-        {
-            return 0;
         }
 
     }

@@ -28,8 +28,8 @@ namespace Test
                 Console.WriteLine($"Se agrega al escaner el libro: {l1}");
 
             Console.WriteLine();
-            Console.WriteLine($"Agrego el mismo Libro: libro es igual ? T: {l1 == l2}");
-            Console.WriteLine($"Agrego distinto Libro: libro es igual ? F: {l1 == l3}");
+            Console.WriteLine($"Comparo el mismo Libro: libro es igual ? T: {l1 == l2}");
+            Console.WriteLine($"Comparo distinto Libro: libro es igual ? F: {l1 == l3}");
 
             Console.WriteLine();
             Console.WriteLine($"Se puede agregar un libro Igual al escaner ? F: " +
@@ -85,8 +85,8 @@ namespace Test
             escanerMapa.ListaDocumentos.Add(m1);
             Console.WriteLine($"Se agrega al escaner el mapa: {m1}");
 
-            Console.WriteLine($"Agrego el mismo mapa: mapa igual ? T: {m1 == m2}");
-            Console.WriteLine($"Agrego distinto mapa: mapa igual ? F: {m1 == m3}");
+            Console.WriteLine($"Comparo el mismo mapa: mapa igual ? T: {m1 == m2}");
+            Console.WriteLine($"Comparo distinto mapa: mapa igual ? F: {m1 == m3}");
             Console.WriteLine($"Se puede agregar un mapa igual al escaner ? F: " +
                               $"{escanerMapa + m2}");
             Console.WriteLine($"Se puede agregar un mapa distinto al escaner ? T: " +
