@@ -73,11 +73,11 @@ namespace Test
             int puntos = 0;
             if (extensionLibroDistr == 0) { puntos += 3; }
             if (cantidadLibroDistr == 0) { puntos += 1; }
-            if (resumenLibroDistr == "") { puntos += 1; } //mal
+            if (resumenLibroDistr == "") { puntos += 1; } //corregido
 
             if (extensionLibroEnEsc == 0) { puntos += 3; }
             if (cantidadLibroEnEsc == 0) { puntos += 1; }
-            if (resumenLibroEnEsc == "") { puntos += 1; } // mal
+            if (resumenLibroEnEsc == "") { puntos += 1; } // corregido
 
             if (extensionLibroEnRev == l1.NumPaginas + l2.NumPaginas) { puntos += 3; }
             if (cantidadLibroEnRev == 2) { puntos += 1; }
@@ -85,7 +85,7 @@ namespace Test
 
             if (extensionLibroTerminado == 0) { puntos += 3; }
             if (cantidadLibroTerminado == 0) { puntos += 1; }
-            if (resumenLibroTerminado == "") { puntos += 1; } // mal
+            if (resumenLibroTerminado == "") { puntos += 1; } // corregido
 
             if (extensionMapaDistr == m1.Superficie) { puntos += 3; }
             if (cantidadMapaDistr == 1) { puntos += 1; }
@@ -97,7 +97,7 @@ namespace Test
 
             if (extensionMapaEnRev == 0) { puntos += 3; }
             if (cantidadMapaEnRev == 0) { puntos += 1; }
-            if (resumenMapaEnRev == "") { puntos += 1; }// mal
+            if (resumenMapaEnRev == "") { puntos += 1; }// corregido
 
             if (extensionMapaTerminado == m3.Superficie + m4.Superficie) { puntos += 3; }
             if (cantidadMapaTerminado == 2) { puntos += 1; }
