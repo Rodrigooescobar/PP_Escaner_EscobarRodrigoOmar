@@ -47,6 +47,7 @@ documento.
 * El método AvanzarEstado() debe pasar al siguiente estado dentro del orden que se
 estableció en el requerimiento. Debe devolver false si el documento ya está
 terminado.
+#### Codigos hechos segun los requisitos pedidos.
 <!-- Bloque de codigos -->
 ```C#
 public bool AvanzarEstado()
@@ -213,6 +214,7 @@ mapas.
 * resumen: se muestran los datos de cada uno de los ítems contenidos en una lista
 según el escáner y el estado.
 
+#### Codigos hechos segun los requisitos pedidos.
 #### Metodo privado que se va a reutilizar para no repetir codigo.
 ```C#
 private static void MostrarDocumentos(Escaner e, Paso estado, out int extension, out int cantidad, out string resumen)
