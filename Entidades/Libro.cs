@@ -48,9 +48,11 @@ namespace Entidades
 
             StringBuilder sb = new StringBuilder();
             sb.Append(stringBase);
-            int codBarras = stringBase.IndexOf("Cód.");
+            // busca en la cadena con conincida con Cód y devuelve el indice
+            int posCodBarras = stringBase.IndexOf("Cód.");
 
-            sb.Insert(codBarras, $"ISBN: {this.ISBN} \n");
+            // Inser inserta la cadena en la posicion Cód y hacemos un salto de linea
+            sb.Insert(posCodBarras, $"ISBN: {this.ISBN} \n");
             sb.Append($"Número de páginas: {this.numPaginas}.");
 
             return sb.ToString();
