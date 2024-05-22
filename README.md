@@ -199,7 +199,7 @@ dentro de la lista de documentos.
             return false;
         }
 ```
-### Clase Escaner
+### Clase Informe
 ![imagen de un punto de requisito](/imagenes/informe.jpg "Clase Informe")
 
 <p style="text-align: justify;">
