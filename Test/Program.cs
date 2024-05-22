@@ -140,13 +140,13 @@ namespace Test
             l8.AvanzarEstado();
             l8.AvanzarEstado();
             l8.AvanzarEstado();
-            l8.AvanzarEstado();
+            //l8.AvanzarEstado();
             escanerLibro.ListaDocumentos.Add(l8);
             // l9 terminado
             l9.AvanzarEstado();
             l9.AvanzarEstado();
             l9.AvanzarEstado();
-            l9.AvanzarEstado();
+            //l9.AvanzarEstado();
             escanerLibro.ListaDocumentos.Add(l9);
 
             // Mostrar los resultados
