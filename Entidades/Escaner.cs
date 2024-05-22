@@ -106,10 +106,6 @@ namespace Entidades
             foreach (Documento doc in e.listaDocumentos)
             {
                 // Si el documento es un libro y ya existe uno con la misma cant. de hojas, retorna true
-                //if (d.GetType() == typeof(Libro) && ((Libro)d).NumPaginas == ((Libro)doc).NumPaginas)
-                //{
-                //    return true;
-                //}
                 if(d is Libro && doc is Libro && ((Libro)d) == ((Libro)doc))
                 {
                     return true;

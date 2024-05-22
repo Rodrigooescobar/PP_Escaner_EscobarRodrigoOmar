@@ -139,12 +139,12 @@ dentro de la lista de documentos.
             foreach (Documento doc in e.listaDocumentos)
             {
                 // Si el documento es un libro y ya existe uno con la misma cant. de hojas, retorna true
-                if(d is Libro && doc is Libro && ((Libro)d).NumPaginas == ((Libro)doc).NumPaginas)
+                if(d is Libro && doc is Libro && ((Libro)d) == ((Libro)doc))
                 {
                     return true;
                 }
                 // Si el documento es un mapa y ya existe uno con la misma superficie, retorna true
-                else if (d is Mapa && doc is Mapa && ((Mapa)d).Superficie == ((Mapa)doc).Superficie)
+                else if (d is Mapa && doc is Mapa && ((Mapa)d) == ((Mapa)doc))
                 {
                     return true;
                 }
