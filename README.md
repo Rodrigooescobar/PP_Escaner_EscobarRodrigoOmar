@@ -138,12 +138,12 @@ dentro de la lista de documentos.
         {
             foreach (Documento doc in e.listaDocumentos)
             {
-                // Si el documento es un libro y ya existe uno con la misma cant. de hojas, retorna true
+                // Si el documento es un libro y ya existe, retorna true
                 if(d is Libro && doc is Libro && ((Libro)d) == ((Libro)doc))
                 {
                     return true;
                 }
-                // Si el documento es un mapa y ya existe uno con la misma superficie, retorna true
+                // Si el documento es un mapa y ya existe, retorna true
                 else if (d is Mapa && doc is Mapa && ((Mapa)d) == ((Mapa)doc))
                 {
                     return true;
@@ -247,34 +247,29 @@ private static void MostrarDocumentos(Escaner e, Paso estado, out int extension,
                     resumen += doc.ToString();
                 }
             }
-
-            if (listaDistribuidos.Count == 0)
-            {
-                resumen = $"Escaner {e.Marca} sin Documentos en estado: {estado}";
-            }
         }
 ```
 #### Usamos el metodo privado en los siguientes metodos para no repetir codigo.
 ```C#
 public static void MostrarDistribuidos(Escaner e, out int extension, out int cantidad, out string resumen)
-        {
-            MostrarDocumentos(e, Paso.Distribuido, out extension, out cantidad, out resumen);
-        }
+    {
+        MostrarDocumentos(e, Paso.Distribuido, out extension, out cantidad, out resumen);
+    }
 
-        public static void MostrarEnRevision(Escaner e, out int extension, out int cantidad, out string resumen)
-        {
-            MostrarDocumentos(e, Paso.EnRevicion, out extension, out cantidad, out resumen);
-        }
+public static void MostrarEnRevision(Escaner e, out int extension, out int cantidad, out string resumen)
+    {
+        MostrarDocumentos(e, Paso.EnRevicion, out extension, out cantidad, out resumen);
+    }
 
-        public static void MostrarEnEscaner(Escaner e, out int extension, out int cantidad, out string resumen)
-        {
-            MostrarDocumentos(e, Paso.EnEscaner, out extension, out cantidad, out resumen);
-        }
+public static void MostrarEnEscaner(Escaner e, out int extension, out int cantidad, out string resumen)
+    {
+        MostrarDocumentos(e, Paso.EnEscaner, out extension, out cantidad, out resumen);
+    }
 
-         public static void MostrarTerminados(Escaner e, out int extension, out int cantidad, out string resumen)
-        {
-            MostrarDocumentos(e, Paso.Terminado, out extension, out cantidad, out resumen);
-        }
+public static void MostrarTerminados(Escaner e, out int extension, out int cantidad, out string resumen)
+    {
+        MostrarDocumentos(e, Paso.Terminado, out extension, out cantidad, out resumen);
+    }
 ```
 
 
